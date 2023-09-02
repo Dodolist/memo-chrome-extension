@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memozzang</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="memo-wrap">
+      <div class="memo-topbar">
+        <img src="images/clear-icon.svg" class="icon clear-icon" />
+      </div>
+      <textarea spellcheck="false" placeholder="메모를 입력하세요." class="memo" name="memo"></textarea>
+    </div>
+    <div class="black-screen"></div>
+    <div class="full-screen">
+      <div class="wrap">
+        <div class="content">저장된 메모 내용을<br>삭제하시겠습니까?</div>
+        <div class="sub-content">삭제 이후에 복구할 수 없습니다.</div>
+      </div>
+      <div class="bottom">
+        <div class="delete">삭제</div>
+        <div class="cancel">취소</div>
+      </div>
+    </div>
+    <div class="icon-wrap">
+      <img src="images/reload-icon.svg" class="icon reload-icon" />
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>

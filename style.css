@@ -1,0 +1,238 @@
+*, body {
+    box-sizing: border-box;
+    margin: 0;
+}
+.memo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    background-color: #ffe69e;
+}
+.memo {
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    resize: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 16px;
+
+    line-height: 1.7;
+}
+.memo::placeholder {
+    color: #a0a0a0a0;
+}
+
+::selection {
+    color: #00000080;
+    background-color: #ffb80080;
+}
+
+.memo-topbar {
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    height: 0px;
+    width: 100%;
+    background-color: #ffcf4f;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    overflow: hidden;
+    padding: 0 8px;
+    gap: 8px;
+}
+
+.active-memo-topbar {
+    transition: all 0.2s ease-in-out;
+    height: 32px;
+    padding: 8px;
+}
+
+.icon {
+    transition: all 0.2s ease-in-out;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        scale: 1.1;
+        filter: brightness(1.1);
+    }
+    &:active {
+        scale: 0.9;
+        filter: brightness(0.9);
+    }
+}
+
+.active-reload-icon {
+    animation: rotate 0.5s forwards;
+}
+
+.icon-wrap {
+    transition: all 0.2s ease-in-out;
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff80;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        filter: brightness(1.1);
+    }
+    &:active {
+        scale: 0.9;
+        filter: brightness(0.9);
+    }
+}
+
+.black-screen {
+    z-index: 10;
+    transition: all 0.2s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000080;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.active-black-screen {
+    transition: all 0.2s ease-in-out;
+    backdrop-filter: blur(16px);
+    opacity: 1;
+}
+
+.full-screen {
+    z-index: 11;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.active-full-screen {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.wrap {
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -40%);
+}
+
+.active-wrap {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+.content {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sub-content {
+    margin-top: 8px;
+    color: #ffffff80;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.bottom {
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+    opacity: 0;
+}
+
+.active-bottom {
+    opacity: 1;
+}
+
+.delete {
+    transition: all 0.2s ease-in-out;
+
+    color: #ffffff;
+    font-size: 16px;
+    background-color: #ff4a4a;
+    flex-grow: 1;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+    &:active {
+        filter: brightness(0.8);
+    }
+}
+
+.cancel {
+    transition: all 0.2s ease-in-out;
+
+    color: #a0a0a0;
+    font-size: 16px;
+    background-color: #ffffff;
+    flex-grow: 1;
+    text-align: center;
+    padding: 8px 0;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.9);
+    }
+    &:active {
+        filter: brightness(0.8);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
