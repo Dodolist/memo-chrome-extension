@@ -1,10 +1,13 @@
 {
     "name": "Memozzang",
     "description": "When you need to remember something, just memozzang it!",
-    "version": "0.1",
+    "version": "1.0.0",
     "manifest_version": 3,
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "default_icon": {
+            "128": "128.png"
+        }
     },
     "permissions": [
         "storage"

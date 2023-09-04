@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memozzang</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="memolist.css">
   </head>
   <body>
     <div class="memo-wrap">
       <div class="memo-topbar">
+        <img src="images/more-icon.svg" class="icon more-icon" />
         <img src="images/clear-icon.svg" class="icon clear-icon" />
       </div>
       <textarea spellcheck="false" placeholder="메모를 입력하세요." class="memo" name="memo"></textarea>
@@ -16,8 +18,8 @@
     <div class="black-screen"></div>
     <div class="full-screen">
       <div class="wrap">
-        <div class="content">저장된 메모 내용을<br>삭제하시겠습니까?</div>
-        <div class="sub-content">삭제 이후에 복구할 수 없습니다.</div>
+        <div class="message">저장된 메모 내용을<br>삭제하시겠습니까?</div>
+        <div class="sub-message">삭제 이후에 복구할 수 없습니다.</div>
       </div>
       <div class="bottom">
         <div class="delete">삭제</div>
@@ -27,7 +29,13 @@
     <div class="icon-wrap">
       <img src="images/reload-icon.svg" class="icon reload-icon" />
     </div>
+    <div class="memo-list">
+      <div class="mini-memo">
+        <div class="title">메모 제목입니다.</div>
+        <div class="content">메모 내용이 들어갑니다. 테스트 메모 내용입니다</div>
+      </div>
+    </div>
     <script src="popup.js"></script>
-    <script src="list.js"></script>
+    <script src="topbar.js"></script>
   </body>
 </html>

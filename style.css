@@ -159,13 +159,13 @@
     transform: translate(-50%, -50%);
 }
 
-.content {
+.message {
     color: #ffffff;
     font-size: 24px;
     font-weight: bold;
 }
 
-.sub-content {
+.sub-message {
     margin-top: 8px;
     color: #ffffff80;
     font-size: 12px;
