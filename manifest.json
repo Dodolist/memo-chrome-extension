@@ -1,6 +1,6 @@
 {
-    "name": "Memozzang",
-    "description": "When you need to remember something, just memozzang it!",
+    "name": "MemoLink",
+    "description": "Notepad, a Chrome extension that enables synchronization between Google accounts.",
     "version": "1.0.0",
     "manifest_version": 3,
     "action": {
