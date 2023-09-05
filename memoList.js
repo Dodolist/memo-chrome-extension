@@ -1,9 +1,14 @@
 const memoList = document.querySelector('.memo-items');
+const addMemo = document.querySelector('.add-memo');
 
 document.addEventListener('DOMContentLoaded', function () {
   loadMemoData();
 
   // 입력 텍스트가 변경될 때마다 자동으로 저장
+});
+
+addMemo.addEventListener('click', function () {
+  selectMemoItem('', '');
 });
 
 // 현재 select된 메모의 내용
