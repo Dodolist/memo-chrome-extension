@@ -19,8 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
 function loadMemoData() {
   chrome.storage.sync.get('memoData', function (data) {
     if (data.memoData) {
-      memoData = data.memoData;
-      console.log('loadMemoData' + JSON.stringify(memoData, null, '\t'));
+      memoData = sortMemoList(data.memoData);
+
+      editedContent = memoData[Object.keys(memoData)[0]];
+      editedUpdatedAt = Object.keys(memoData)[0];
+      changeContent();
+
+      // MemoList div 생성
       createMemoData();
     }
   });
@@ -87,7 +92,6 @@ function DateToString() {
   const seconds = date.getSeconds();
   
   const string = year + '. ' + month + '. ' + day + '.!' + hours + ':' + minutes + ':' + seconds;
-  console.log("string" + string);
 
   return string;
 }
@@ -95,4 +99,22 @@ function DateToString() {
 function initMemoData() {
   chrome.storage.sync.set({ memoData: {} }, function () {
   });
+}
+
+function sortMemoList(inputObject) {
+  const keysArray = Object.keys(inputObject);
+
+  keysArray.sort(function (a, b) {
+    return new Date(b) - new Date(a);
+  });
+
+  const sortedObject = {};
+  for (const key of keysArray) {
+    sortedObject[key] = inputObject[key];
+  }
+  return sortedObject;
+}
+
+function changeContent() {
+  inputTextarea.value = editedContent;
 }
