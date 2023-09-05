@@ -4,24 +4,42 @@ document.addEventListener('DOMContentLoaded', function () {
   loadMemoData();
 
   // 입력 텍스트가 변경될 때마다 자동으로 저장
-  inputTextarea.addEventListener('input', function () {
-    clearTimeout(autoSaveTimer);
+});
+
+// 현재 select된 메모의 내용
+var editedContent = '';
+var editedUpdatedAt = '';
+// autosaveTimer
+var autoSaveTimer;
+// memoData Object
+var memoData = {};
+
+
+inputTextarea.addEventListener('input', function () {
+  clearTimeout(autoSaveTimer);
+
+  // 메모를 2초 후에 스토리지에 저장
+  autoSaveTimer = setTimeout(function () {
+    if (editedUpdatedAt) {
+      delete memoData[editedUpdatedAt];
+    }
+
     const memoText = inputTextarea.value;
     const updated_at = DateToString();
-    console.log("updated_at : " + updated_at);
+    editedContent = memoText;
+    editedUpdatedAt = updated_at;
 
     memoData[updated_at] = memoText;
+    memoData = sortMemoList(memoData);
 
-    // 메모를 5초 후에 스토리지에 저장
-    autoSaveTimer = setTimeout(function () {
-      saveMemoData();
-    }, 5000);
-  });
+    saveMemoData();
+    createMemoData();
+  }, 2000);
 });
 
 function loadMemoData() {
   chrome.storage.sync.get('memoData', function (data) {
-    if (data.memoData) {
+    if (Object.keys(data.memoData).length !== 0) {
       memoData = sortMemoList(data.memoData);
 
       editedContent = memoData[Object.keys(memoData)[0]];
@@ -37,10 +55,10 @@ function loadMemoData() {
 function saveMemoData() {
   chrome.storage.sync.set({ memoData: memoData }, function () {
   });
-  console.log('saveMemoData' + JSON.stringify(memoData, null, '\t'));
 }
 
 function createMemoData() {
+  memoList.innerHTML = '';
   for (let key in memoData) {
     const memoItem = document.createElement('div');
     memoItem.classList.add('memo-item');
@@ -51,7 +69,7 @@ function createMemoData() {
       <div class="memo-item-content">${updated_at} ${object.content}</div>
     `;
     memoItem.addEventListener('click', function () {
-      selectMemoItem(memoData[key], updated_at);
+      selectMemoItem(memoData[key], key);
     });
     memoList.appendChild(memoItem);
   }
