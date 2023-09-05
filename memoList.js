@@ -24,14 +24,16 @@ inputTextarea.addEventListener('input', function () {
       delete memoData[editedUpdatedAt];
     }
 
-    const memoText = inputTextarea.value;
-    const updated_at = DateToString();
-    editedContent = memoText;
-    editedUpdatedAt = updated_at;
+    if (inputTextarea.value !== '') {
+      const memoText = inputTextarea.value;
+      const updated_at = DateToString();
+      editedContent = memoText;
+      editedUpdatedAt = updated_at;
 
-    memoData[updated_at] = memoText;
-    memoData = sortMemoList(memoData);
+      memoData[updated_at] = memoText;
+      memoData = sortMemoList(memoData);
 
+    }
     saveMemoData();
     createMemoData();
   }, 2000);
