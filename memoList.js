@@ -5,14 +5,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 입력 텍스트가 변경될 때마다 자동으로 저장
   inputTextarea.addEventListener('input', function () {
+    clearTimeout(autoSaveTimer);
     const memoText = inputTextarea.value;
     const updated_at = DateToString();
     console.log("updated_at : " + updated_at);
 
     memoData[updated_at] = memoText;
 
-    // 메모를 로컬 스토리지에 저장
-    saveMemoData();
+    // 메모를 5초 후에 스토리지에 저장
+    autoSaveTimer = setTimeout(function () {
+      saveMemoData();
+    }, 5000);
   });
 });
 
