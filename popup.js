@@ -15,25 +15,6 @@ inputTextarea.addEventListener('input', function (e) {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-
-  // 확장 프로그램이 열릴 때 저장된 메모를 불러와서 표시
-  chrome.storage.sync.get('memo', function (data) {
-    if (data.memo) {
-      inputTextarea.value = data.memo;
-    }
-  });
-
-  // 입력 텍스트가 변경될 때마다 자동으로 저장
-  inputTextarea.addEventListener('input', function () {
-    const memoText = inputTextarea.value;
-
-    // 메모를 로컬 스토리지에 저장
-    chrome.storage.sync.set({ memo: memoText }, function () {
-    });
-  });
-});
-
 inputTextarea.addEventListener('focus', function () {
   const memoTopbar = document.querySelector('.memo-topbar');
   memoTopbar.classList.add('active-memo-topbar');
@@ -84,9 +65,11 @@ function clearMemo() {
   const wrap = document.querySelector('.wrap');
   const bottombar = document.querySelector('.bottom');
   // 메모를 로컬 스토리지에서 삭제
+  /*
   chrome.storage.sync.remove('memo', function () {
     inputTextarea.value = "";
   });
+  */
   blackScreen.classList.remove('active-black-screen');
   fullScreen.classList.remove('active-full-screen');
   wrap.classList.remove('active-wrap');
