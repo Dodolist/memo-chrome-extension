@@ -1,5 +1,3 @@
-var showMemoList = false;
-
 const clearIcon = document.querySelector('.clear-icon');
 const moreIcon = document.querySelector('.more-icon');
 
@@ -16,7 +14,7 @@ function isClickedClearIcon() {
   fullScreen.classList.add('active-full-screen');
   wrap.classList.add('active-wrap');
   bottombar.classList.add('active-bottom');
-  isTopbarHidden = true;
+  showTopbar = true;
 }
 
 function isClickedMoreIcon() {

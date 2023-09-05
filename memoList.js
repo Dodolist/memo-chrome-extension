@@ -1,9 +1,5 @@
 const memoList = document.querySelector('.memo-items');
 
-let memoData = {};
-let editedContent = '';
-let editedUpdatedAt = '';
-
 document.addEventListener('DOMContentLoaded', function () {
   loadMemoData();
 

@@ -1,5 +1,3 @@
-var isTopbarHidden = false;
-
 const inputTextarea = document.querySelector('.memo');
 
 inputTextarea.addEventListener('input', function (e) {
@@ -57,7 +55,7 @@ function isClickedClearIcon() {
   fullScreen.classList.add('active-full-screen');
   wrap.classList.add('active-wrap');
   bottombar.classList.add('active-bottom');
-  isTopbarHidden = true;
+  showTopbar = true;
 }
 
 function clearMemo() {
@@ -76,7 +74,7 @@ function clearMemo() {
   fullScreen.classList.remove('active-full-screen');
   wrap.classList.remove('active-wrap');
   bottombar.classList.add('active-bottom');
-  isTopbarHidden = false;
+  showTopbar = false;
 }
 
 function cancel() {
@@ -89,5 +87,5 @@ function cancel() {
   fullScreen.classList.remove('active-full-screen');
   wrap.classList.remove('active-wrap');
   bottombar.classList.add('active-bottom');
-  isTopbarHidden = false;
+  showTopbar = false;
 }
