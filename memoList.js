@@ -37,7 +37,6 @@ inputTextarea.addEventListener('input', function () {
 
       memoData[updated_at] = memoText;
       memoData = sortMemoList(memoData);
-
     }
     saveMemoData();
     createMemoData();
@@ -146,3 +145,30 @@ function sortMemoList(inputObject) {
 function changeContent() {
   inputTextarea.value = editedContent;
 }
+
+
+const deleteButton = document.querySelector('.delete');
+
+deleteButton.addEventListener('click', clearMemo);
+
+function clearMemo() {
+  const inputTextarea = document.querySelector('.memo');
+  const blackScreen = document.querySelector('.black-screen');
+  const fullScreen = document.querySelector('.full-screen');
+  const wrap = document.querySelector('.wrap');
+  const bottombar = document.querySelector('.bottom');
+
+  if (editedUpdatedAt) {
+    delete memoData[editedUpdatedAt];
+  }
+  inputTextarea.value = '';
+  saveMemoData();
+  createMemoData();
+
+  blackScreen.classList.remove('active-black-screen');
+  fullScreen.classList.remove('active-full-screen');
+  wrap.classList.remove('active-wrap');
+  bottombar.classList.add('active-bottom');
+  showTopbar = false;
+}
+

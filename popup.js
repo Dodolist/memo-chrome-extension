@@ -24,11 +24,9 @@ inputTextarea.addEventListener('blur', function () {
 });
 
 //const reloadIcon = document.querySelector('.reload-icon');
-const deleteButton = document.querySelector('.delete');
 const cancelButton = document.querySelector('.cancel');
 
 //reloadIcon.addEventListener('click', isClickedReloadIcon);
-deleteButton.addEventListener('click', clearMemo);
 cancelButton.addEventListener('click', cancel);
 
 /*
@@ -56,25 +54,6 @@ function isClickedClearIcon() {
   wrap.classList.add('active-wrap');
   bottombar.classList.add('active-bottom');
   showTopbar = true;
-}
-
-function clearMemo() {
-  const inputTextarea = document.querySelector('.memo');
-  const blackScreen = document.querySelector('.black-screen');
-  const fullScreen = document.querySelector('.full-screen');
-  const wrap = document.querySelector('.wrap');
-  const bottombar = document.querySelector('.bottom');
-  // 메모를 로컬 스토리지에서 삭제
-  /*
-  chrome.storage.sync.remove('memo', function () {
-    inputTextarea.value = "";
-  });
-  */
-  blackScreen.classList.remove('active-black-screen');
-  fullScreen.classList.remove('active-full-screen');
-  wrap.classList.remove('active-wrap');
-  bottombar.classList.add('active-bottom');
-  showTopbar = false;
 }
 
 function cancel() {
