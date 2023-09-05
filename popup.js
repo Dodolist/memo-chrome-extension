@@ -25,15 +25,16 @@ inputTextarea.addEventListener('blur', function () {
   memoTopbar.classList.remove('active-memo-topbar');
 });
 
-const reloadIcon = document.querySelector('.reload-icon');
+//const reloadIcon = document.querySelector('.reload-icon');
 const deleteButton = document.querySelector('.delete');
 const cancelButton = document.querySelector('.cancel');
 
-reloadIcon.addEventListener('click', isClickedReloadIcon);
+//reloadIcon.addEventListener('click', isClickedReloadIcon);
 deleteButton.addEventListener('click', clearMemo);
 cancelButton.addEventListener('click', cancel);
 
-function isClickedReloadIcon() {
+/*
+ function isClickedReloadIcon() {
   chrome.storage.sync.get('memo', function (data) {
     if (data.memo) {
       inputTextarea.value = data.memo;
@@ -44,6 +45,7 @@ function isClickedReloadIcon() {
     reloadIcon.classList.remove('active-reload-icon');
   }, 500);
 }
+*/
 
 function isClickedClearIcon() {
   const blackScreen = document.querySelector('.black-screen');
