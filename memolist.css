@@ -96,6 +96,7 @@
     letter-spacing: -0.5px;
 
     cursor: pointer;
+    user-select: none;
 }
 
 .add-memo img {
@@ -109,4 +110,8 @@
 .add-memo:hover img {
     opacity: 1;
     filter: invert(1);
+}
+
+.add-memo:active {
+    background-color: #bf9b3b;
 }
