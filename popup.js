@@ -1,4 +1,5 @@
 const inputTextarea = document.querySelector('.memo');
+const memoTopbar = document.querySelector('.memo-topbar');
 
 inputTextarea.addEventListener('input', function (e) {
   const cursorPosition = inputTextarea.selectionStart;
@@ -13,18 +14,17 @@ inputTextarea.addEventListener('input', function (e) {
   }
 });
 
-inputTextarea.addEventListener('focus', function () {
-  const memoTopbar = document.querySelector('.memo-topbar');
-  memoTopbar.classList.add('active-memo-topbar');
-});
-
-inputTextarea.addEventListener('blur', function () {
-  const memoTopbar = document.querySelector('.memo-topbar');
-  memoTopbar.classList.remove('active-memo-topbar');
+inputTextarea.addEventListener('click', function () {
+  if(showTopbar) {
+    memoTopbar.classList.remove('active-memo-topbar');
+    showTopbar = false;
+  } else {
+    memoTopbar.classList.add('active-memo-topbar');
+    showTopbar = true;
+  }
 });
 
 const cancelButton = document.querySelector('.cancel');
-
 cancelButton.addEventListener('click', cancel);
 
 function isClickedClearIcon() {
