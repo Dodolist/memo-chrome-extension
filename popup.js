@@ -25,7 +25,7 @@ inputTextarea.addEventListener('click', function () {
 });
 
 const cancelButton = document.querySelector('.cancel');
-cancelButton.addEventListener('click', cancel);
+cancelButton.addEventListener('click', clickCancel);
 
 function isClickedClearIcon() {
   const blackScreen = document.querySelector('.black-screen');
@@ -40,7 +40,7 @@ function isClickedClearIcon() {
   showTopbar = true;
 }
 
-function cancel() {
+function clickCancel() {
   const blackScreen = document.querySelector('.black-screen');
   const fullScreen = document.querySelector('.full-screen');
   const wrap = document.querySelector('.wrap');
