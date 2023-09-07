@@ -11,14 +11,6 @@ addMemo.addEventListener('click', function () {
   selectMemoItem('', '');
 });
 
-// 현재 select된 메모의 내용
-var editedContent = '';
-var editedUpdatedAt = '';
-// autosaveTimer
-var autoSaveTimer = null;
-// memoData Object
-var memoData = {};
-
 inputTextarea.addEventListener('input', function () {
   clearTimeout(autoSaveTimer);
   showLoading();
