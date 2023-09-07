@@ -91,6 +91,8 @@
     letter-spacing: -0.5px;
 
     opacity: 0;
+    user-select: none;
+    pointer-events: none;
 }
 
 .memo-bottombar .sync-text {
