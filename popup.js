@@ -23,25 +23,9 @@ inputTextarea.addEventListener('blur', function () {
   memoTopbar.classList.remove('active-memo-topbar');
 });
 
-//const reloadIcon = document.querySelector('.reload-icon');
 const cancelButton = document.querySelector('.cancel');
 
-//reloadIcon.addEventListener('click', isClickedReloadIcon);
 cancelButton.addEventListener('click', cancel);
-
-/*
- function isClickedReloadIcon() {
-  chrome.storage.sync.get('memo', function (data) {
-    if (data.memo) {
-      inputTextarea.value = data.memo;
-    }
-  });
-  reloadIcon.classList.add('active-reload-icon');
-  setTimeout(function () {
-    reloadIcon.classList.remove('active-reload-icon');
-  }, 500);
-}
-*/
 
 function isClickedClearIcon() {
   const blackScreen = document.querySelector('.black-screen');

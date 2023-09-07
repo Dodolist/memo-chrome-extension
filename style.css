@@ -72,10 +72,6 @@
     }
 }
 
-.active-reload-icon {
-    animation: rotate 0.5s forwards;
-}
-
 .memo-bottombar {
     transition: all 0.2s ease-in-out;
     position: absolute;
@@ -147,29 +143,6 @@
         transform: rotate(360deg);
     }
 }
-
-/*
-.icon-wrap {
-    transition: all 0.2s ease-in-out;
-    position: fixed;
-    right: 12px;
-    bottom: 12px;
-    width: 40px;
-    height: 40px;
-    background-color: #ffffff80;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &:hover {
-        filter: brightness(1.1);
-    }
-    &:active {
-        scale: 0.9;
-        filter: brightness(0.9);
-    }
-}
-*/
 
 .black-screen {
     z-index: 10;
