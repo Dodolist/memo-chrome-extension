@@ -13,7 +13,7 @@ inputTextarea.addEventListener('input', function () {
   clearTimeout(autoSaveTimer);
   showLoading();
 
-  // 메모를 2초 후에 스토리지에 저장
+  // 메모를 0.5초 후에 스토리지에 저장
   autoSaveTimer = setTimeout(function () {
 
     if (editedUpdatedAt) {
@@ -33,7 +33,7 @@ inputTextarea.addEventListener('input', function () {
     createMemoData();
     completeLoading();
     autoSaveTimer = null;
-  }, 2000);
+  }, 500);
 });
 
 function loadMemoData() {
