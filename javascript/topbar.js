@@ -10,7 +10,6 @@ function isClickedClearIcon() {
   const wrap = document.querySelector('.wrap');
   const bottombar = document.querySelector('.bottom');
 
-  memoTopbar.classList.remove('active-memo-topbar');
   blackScreen.classList.add('active-black-screen');
   fullScreen.classList.add('active-full-screen');
   wrap.classList.add('active-wrap');
@@ -21,7 +20,6 @@ function isClickedClearIcon() {
 function isClickedMoreIcon() {
   const memoList = document.querySelector('.memo-list');
 
-  memoTopbar.classList.remove('active-memo-topbar');
   memoList.classList.add('active-memo-list');
   blackScreen.classList.add('active-black-screen');
   showMemoList = true;

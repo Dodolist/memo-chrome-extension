@@ -37,10 +37,9 @@ inputTextarea.addEventListener('input', function () {
 });
 
 function loadMemoData() {
-  chrome.storage.sync.get('memoData', function (data) {
-    if (Object.keys(data.memoData).length !== 0) {
-      memoData = sortMemoList(data.memoData);
-
+  if(chrome.storage === undefined) {
+    if (localStorage.getItem('memoData') !== null) {
+      memoData = sortMemoList(JSON.parse(localStorage.getItem('memoData')));
       editedContent = memoData[Object.keys(memoData)[0]];
       editedUpdatedAt = Object.keys(memoData)[0];
       changeContent();
@@ -48,12 +47,29 @@ function loadMemoData() {
       // MemoList div 생성
       createMemoData();
     }
-  });
+  } else {
+    chrome.storage.sync.get('memoData', function (data) {
+      if (Object.keys(data.memoData).length !== 0) {
+        memoData = sortMemoList(data.memoData);
+
+        editedContent = memoData[Object.keys(memoData)[0]];
+        editedUpdatedAt = Object.keys(memoData)[0];
+        changeContent();
+
+        // MemoList div 생성
+        createMemoData();
+      }
+    });
+  }
 }
 
 function saveMemoData() {
-  chrome.storage.sync.set({ memoData: memoData }, function () {
-  });
+  if(chrome.storage === undefined) {
+    localStorage.setItem('memoData', JSON.stringify(memoData));
+  } else {
+    chrome.storage.sync.set({ memoData: memoData }, function () {
+    });
+  }
 }
 
 function createMemoData() {
@@ -117,8 +133,12 @@ function DateToString() {
 }
 
 function initMemoData() {
-  chrome.storage.sync.set({ memoData: {} }, function () {
-  });
+  if(chrome.storage === undefined) {
+    localStorage.setItem('memoData', JSON.stringify({}));
+  } else {
+    chrome.storage.sync.set({ memoData: {} }, function () {
+    });
+  }
 }
 
 function sortMemoList(inputObject) {

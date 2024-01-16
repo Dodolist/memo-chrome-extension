@@ -1,5 +1,6 @@
 const inputTextarea = document.querySelector('.memo');
 const memoTopbar = document.querySelector('.memo-topbar');
+let timer;
 
 inputTextarea.addEventListener('input', function (e) {
   const cursorPosition = inputTextarea.selectionStart;
@@ -14,14 +15,33 @@ inputTextarea.addEventListener('input', function (e) {
   }
 });
 
+
+inputTextarea.addEventListener('input', function () {
+  if(showTopbar) {
+    memoTopbar.classList.remove('active-memo-topbar');
+    showTopbar = false;
+  }
+
+  clearTimeout(timer);
+
+  timer = setTimeout(function () {
+    memoTopbar.classList.add('active-memo-topbar');
+    showTopbar = true;
+  }, 2000);
+});
+
 inputTextarea.addEventListener('click', function () {
   if(showTopbar) {
     memoTopbar.classList.remove('active-memo-topbar');
     showTopbar = false;
-  } else {
+  }
+
+  clearTimeout(timer);
+
+  timer = setTimeout(function () {
     memoTopbar.classList.add('active-memo-topbar');
     showTopbar = true;
-  }
+  }, 2000);
 });
 
 const cancelButton = document.querySelector('.cancel');
