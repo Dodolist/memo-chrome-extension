@@ -30,8 +30,13 @@
 .memo-items {
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
     overflow-y: scroll;
     padding-bottom: 48px;
+}
+
+.memo-items::-webkit-scrollbar {
+    width: 0px;
 }
 
 .memo-item {
